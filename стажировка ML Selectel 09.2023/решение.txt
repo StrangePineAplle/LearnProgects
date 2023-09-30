@@ -1,0 +1,22 @@
+задание
+#!/bin/bash
+for((a=123;a>0;a-- ))
+do
+tar -xvzf archive_$a.tar.gz
+done
+
+3 код 
+(Dockerfile)
+
+# Контейнер с криптофункцией
+FROM repo.mlops.selcloud.ru/library/cryptocode_func:1.0
+# инициализируем рабочую директорию
+WORKDIR /app
+# в переменной окружения MAIL_ADDRESS указываем свою почту
+ENV MAIL_ADDRESS = shadow77777777@mail.ru
+# копируем закодированное слово в контейнер с криптофункцией.
+COPY dockerfile_secret_code.txt .
+# старт приложения. после запуска в консоли появится твое кодовое слово
+SHELL ["python", "main.py"]
+
+docker build -v /var/run/docker.sock:/var/run/docker.sock -t Dockerfile .
